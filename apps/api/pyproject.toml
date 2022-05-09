@@ -10,6 +10,7 @@ fastapi = "^0.75.2"
 graphene = "^3.0"
 SQLAlchemy = "^1.4.36"
 uvicorn = {extras = ["standard"], version = "^0.17.6"}
+Faker = "^13.7.0"
 
 [tool.poetry.dev-dependencies]
 
