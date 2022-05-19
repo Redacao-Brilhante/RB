@@ -10,7 +10,7 @@ BASE_DIRECTORY = os.path.join(os.path.dirname(__file__), '..')
 SQLALCHEMY_DATABASE_URL = f'sqlite:///{os.path.join(BASE_DIRECTORY, "app_event.db")}'
 
 engine = create_engine(echo=True, url=SQLALCHEMY_DATABASE_URL, **{
-    'connect_arginsert_userss': {
+    'connect_args': {
         'check_same_thread': False
     },
     'poolclass': StaticPool
