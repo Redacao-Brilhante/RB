@@ -1,7 +1,6 @@
-from sqlalchemy import Column, Integer, ForeignKey
+from sqlalchemy import Column, Integer, ForeignKey, String
 from sqlalchemy.orm import relationship
 from database.database import Base
-from models.user.basic import User
 
 
 class Essay(Base):
@@ -9,11 +8,24 @@ class Essay(Base):
 
     id: int = Column("id", Integer, primary_key=True)
 
-    writing_skill_1: int = Column(Integer, nullable=False)
-    writing_skill_2: int = Column(Integer, nullable=False)
-    writing_skill_3: int = Column(Integer, nullable=False)
-    writing_skill_4: int = Column(Integer, nullable=False)
-    writing_skill_5: int = Column(Integer, nullable=False)
-
     user_id: int = Column(Integer, ForeignKey("user.id"))
-    user: User = relationship("User", back_populates="essays")
+    user: 'User' = relationship("User", back_populates="essays")
+
+    writing_skills: list['WritingSkill'] = relationship("WritingSkill", back_populates="essay")
+
+
+class WritingSkill(Base):
+    """Molde para competencias da redacao."""
+
+    __tablename__ = "writing_skill"
+
+    id: int = Column("id", Integer, primary_key=True)
+
+    essay_id: int = Column(Integer, ForeignKey("essay.id"))
+    essay: Essay = relationship("Essay", back_populates="writing_skills")
+
+    name: str = Column(String, nullable=False)
+
+    description: str = Column(String, nullable=False)
+
+    score: int = Column(Integer)

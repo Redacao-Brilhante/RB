@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from models.user.basic import User
 from faker import Faker
-from models.user.permissions import admin, student, teacher
+from data.permissions_and_roles.permissions import admin, student
 
 
 def insert_users(session: Session):

@@ -1,6 +1,6 @@
 from models.user.role import Role, Permission
 
-
+# permissions
 update_user_profile = Permission(name="update user profile", description="update user profile")
 remove_user = Permission(name="remove user", description="remove user")
 
@@ -8,7 +8,7 @@ send_essay = Permission(name="send essay", description="send essay")
 delete_essay = Permission(name="delete essay", description="delete essay")
 evaluate_essay = Permission(name="evaluate essay", description="evaluate users' essays")
 
-
+# roles
 student = Role(
     name="student",
     slug="student",
