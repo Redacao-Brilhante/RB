@@ -4,5 +4,7 @@ import models # noqa
 
 
 init_database()
+
 session = get_session()
+
 populate_database(session)

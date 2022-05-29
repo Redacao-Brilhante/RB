@@ -17,7 +17,7 @@ engine = create_engine(echo=True, url=SQLALCHEMY_DATABASE_URL, **{
 })
 
 SessionLocal = sessionmaker(bind=engine)
-session = SessionLocal()
+
 Base = declarative_base()
 
 
@@ -26,4 +26,6 @@ def init_database():
 
 
 def get_session():
+    session = SessionLocal()
+
     return session

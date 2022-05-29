@@ -15,8 +15,6 @@ class Essay(Base):
 
 
 class WritingSkill(Base):
-    """Molde para competencias da redacao."""
-
     __tablename__ = "writing_skill"
 
     id: int = Column("id", Integer, primary_key=True)
@@ -25,6 +23,8 @@ class WritingSkill(Base):
     essay: Essay = relationship("Essay", back_populates="writing_skills")
 
     name: str = Column(String, nullable=False)
+
+    slug: str = Column(String, unique=True, nullable=False)
 
     description: str = Column(String, nullable=False)
 
